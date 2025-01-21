@@ -1,0 +1,305 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow-y: auto; /* Allow vertical scrolling on mobile */
+}
+
+/* Flexbox for mobile cards: Adjust the width of cards */
+.card {
+    width: 100%; /* Make the card take up the full width of the screen on mobile */
+    height: 200px; /* Keep the card height consistent */
+}
+
+/* Adjust card's layout and description for smaller screens */
+.card > .row {
+    flex-direction: column;
+    align-items: center;
+}
+
+.card > .row > .icon {
+    margin-bottom: 10px; /* Add space between the icon and description */
+}
+
+/* Expanded Description for mobile */
+.card > .row > .description {
+    width: 100%; /* Ensure the description takes full width on small screens */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem 3%;
+    }
+    
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Ensure the container is full width */
+    }
+
+    .card {
+        width: 90%; /* Slight padding to avoid edges touching screen */
+        height: 200px;
+    }
+    
+    .card > .row > .description {
+        font-size: 0.8rem; /* Slightly reduce font size for mobile */
+    }
+
+    .menu-toggle {
+        display: block; /* Ensure menu toggle is visible on mobile */
+    }
+
+    .card > .row {
+        padding: 10px;
+    }
+}
+
+/* Body Styling */
+body {    
+    color: white;
+    font-size: 16px;
+    background-color: #121212; /* Softer black for reduced eye strain */
+    line-height: 1.6;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff5252;
+    border-bottom: 2px solid #ff5252;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(55, 0, 0, 0.9);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff5252;
+    text-transform: uppercase;
+}
+
+/* Wrapper and Container */
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Card Styling */
+.card {
+    width: 80px;
+    height: 300px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: width 0.6s cubic-bezier(0.28, -0.03, 0, 0.99), transform 0.3s ease;
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card > .row {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
+    color: white;
+}
+
+.card > .row > .icon {
+    background: #222;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.card > .row > .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.description p {
+    color: #b0b0ba;
+    padding-top: 5px;
+    font-size: 0.9rem;
+}
+
+.description h4 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #ff5252;
+}
+
+input {
+    display: none;
+}
+
+/* Expanding Cards on Selection */
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Individual Card Backgrounds */
+.card[for="c1"] {
+    background: url(s1.png) no-repeat center / cover;
+}
+
+.card[for="c2"] {
+    background: url(s2.png) no-repeat center / cover;
+}
+
+.card[for="c3"] {
+    background: url(s3.png) no-repeat center / cover;
+}
+
+.card[for="c4"] {
+    background: url(s4.png) no-repeat center / cover;
+}
+
+.card[for="c5"] {
+    background: url(s5.png) no-repeat center / cover;
+}
+
+.card[for="c6"] {
+    background: url(s6.png) no-repeat center / cover;
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem 3%;
+    }
+
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    h1{
+        margin-top: 200px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Ensure the container is full width */
+    }
+
+    .card {
+        width: 90%; /* Slight padding to avoid edges touching screen */
+        height: 200px;
+    }
+
+    .card > .row > .description {
+        font-size: 0.8rem; /* Slightly reduce font size for mobile */
+    }
+
+    .menu-toggle {
+        display: block; /* Ensure menu toggle is visible on mobile */
+    }
+
+    .card > .row {
+        padding: 10px;
+    }
+
+    /* Hide cards with ID c1 and c2 on mobile devices */
+    #c1, #c2 {
+        display: none;
+    }
+}
+
+/* Scroll Indicator */
+.wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background: #ff5252;
+    border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+    background: #222;
+}
